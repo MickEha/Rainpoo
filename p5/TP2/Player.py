@@ -1,21 +1,19 @@
-import random
-
+import pygame
 from pygame.math import Vector3, Vector2
 
 pass
 
 class Player:
     def __init__(self):
-        self.vitesse=5
-        self.taille=2
-        self.forme= 2
-        self.couleur = Vector3()
+        self.taille=100
+        self.couleur = Vector3(255,0,0)
         self.position= Vector2 ()
-        self.direction= Vector2 ()
-        pass
+        self.direction= Vector2()
+        self.forme ='rond'
 
-    def afficher (self):
-        pass
+    def afficher (self,core):
+        if self.forme == 'rond':
+            pygame.draw.circle(core.screen,(self.couleur.x,self.couleur.y,self.couleur.z),(self.position.x,self.position.y),self.taille)
 
 
     def manger(self):
@@ -26,5 +24,6 @@ class Player:
         pass
 
 
-    def deplacer(self):
-        pass
+    def deplacer(self,position):
+        self.position.x = position[0]
+        self.position.y = position[1]
